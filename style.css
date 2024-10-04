@@ -1,0 +1,230 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background: #002339;
+    color: #fff;
+}
+
+.container{
+    margin: 10%;
+    width: 60%;
+    max-width: 500px;
+}
+
+.display{
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    background: #fff;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 20px;
+    border-radius: 5px;
+}
+
+.displayQR {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.container h1{
+    font-weight: 500;
+    font-size: 45px;
+}
+
+.container h1 span{
+    color: #019f55;
+    border-bottom: 4px solid #019f55;
+    padding-bottom: 7px;
+}
+
+.display img {
+    width: 30px;
+    cursor: pointer;
+}
+
+.displayQR img {
+    width: 60px;
+    cursor: pointer;
+}
+
+.display input{
+    border: 0;
+    outline: 0;
+    font-size: 24px;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.displayQR input {
+    border: 0;
+    outline: 0;
+    font-size: 24px;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.container button img{
+    width: 28px;
+    margin-right: 10px;
+}
+
+.container button{
+    border: 0;
+    outline: 0;
+    background: #019f55;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 26px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.containerQR{
+    margin: 5%;
+    width: 60%;
+    max-width: 500px;
+    padding: 30px 35px;
+    background: #fff;
+    position: absolute;
+    top: 40%;
+    left: 70%; /* change this!*/
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 10px;
+}
+
+
+
+.containerQR p{
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 8px;
+    color:#333;
+}
+
+.containerQR input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #494eea;
+    outline: 0;
+    padding: 10px;
+    margin: 10px 0 10px;
+    border-radius: 5px;
+}
+
+.containerQR button {
+    border: 0;
+    outline: 0;
+    background: #494eea;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 26px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.containerQR h1{
+    color: black;
+    height: 100px;
+
+}
+
+.containerQR h1 span{
+    color: #494eea;
+    border-bottom: 4px solid #494eea;
+    padding-bottom: 1px;
+}
+
+
+#imgBox{
+    width: 200px; 
+    border-radius: 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s;
+}
+
+#imgBox img{
+    width: 100%;
+    padding: 10px;
+}
+
+#imgBox.show-img{
+    max-height: 300px;
+    margin: 10px auto;
+    border: 1px solid #d1d1d1;
+}
+
+.error{
+    animation: shake 0.1s linear 10;
+}
+@keyframes shake{
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-2px);
+    }
+    50%{
+        transform: translateX(0);
+    }
+    75%{
+        transform: translateX(2px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+    
+}
+
+h4{
+    position: fixed;  /* Fix the h3 at the bottom */
+    bottom: 45px;  /* Adjust this to how close you want it to the bottom */
+    left: 50%;  /* Center it horizontally */
+    transform: translateX(-50%);  /* Offset to center */
+    color: white;  /* Optional: ensure visibility */
+    font-size: 20px;  /* Adjust to the size you'd like */
+    text-align: center;  /* Center the text */
+    white-space: nowrap;
+}
+
+
+/* styling for slider selector for number of chars
+.containerSelector {
+    background: #019f55;
+    padding: 25px;
+    border-radius: 15px;
+    width: min(400px, 80%);
+}
+
+.range-slider {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding-block: 10px;
+}
+
+*/ 

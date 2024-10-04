@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator + QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Generate a <br><span>Random Password</span></h1>
+    <div class="display">
+        <input type="text" id="password" placeholder="Password">
+        <img src="images/copy.png" onclick="copyPassword()">
+    </div>
+    <button onclick="createPassword()"><img src="images/generate.png">Generate Password</button>
+</div>
+
+<div class="containerQR">
+    <h1>Now Create <br><span>Unique QR Code</span></h1>
+    <div class="displayQR">
+        <input type="text" placeholder="Paste Generated Password" id="qrText">
+        <img src="images/pasted.png" id="pasteButton" onclick="pastePassword()">
+    </div>
+    
+
+    <div id="imgBox">
+        <img src="" id="qrImage">
+    </div>
+
+    <button onclick="generateQR()">Generate QR Code</button>
+    
+</div>
+<!-- slider selector for number of chars
+<div class="containerSelector">
+    <h3>Select Number of Characters</h3>
+
+    <div class="range-slider">
+        <input type="number" class="numberOfChars" value="8" min="8" max="16">
+    </div>
+
+    <div class="range">
+        <input type="range" class="min-input" value="8" min="8" max="16">
+    </div>
+</div>
+-->
+<h4>QR Code Generator can be used to create a QR Code for any text or link as well as your generated passwords.</h4>
+
+<script>
+
+    const passwordBox = document.getElementById("password");
+    const length = 12;
+
+    const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+    const number = "0123456789"
+    const symbol = "@#$%^&*()_+~|}{[]></-=";
+
+    const allChars = upperCase + lowerCase + number + symbol;
+
+function createPassword(){
+    let password = "";
+    password += upperCase[Math.floor(Math.random() * upperCase.length)];
+    password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+    password += number[Math.floor(Math.random() * number.length)];
+    password += symbol[Math.floor(Math.random() * symbol.length)];
+
+    while (length > password.length) {
+        password += allChars[Math.floor(Math.random() * allChars.length)];
+
+    }
+    passwordBox.value = password;
+}
+
+function copyPassword() {
+    passwordBox.select();
+    document.execCommand("copy");
+}
+</script>
+
+<script>
+
+let imgBox = document.getElementById("imgBox");
+let qrImage = document.getElementById("qrImage");
+let qrText = document.getElementById("qrText")
+
+
+function generateQR(){
+    if(qrText.value.length > 0) {
+        qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+        imgBox.classList.add("show-img");
+    } else{
+        qrText.classList.add('error');
+        setTimeout(()=>{
+            qrText.classList.remove('error'); 
+        },1000)
+    }
+
+}
+
+function pastePassword() {
+    passwordBox.select();
+    document.execCommand("paste");
+}
+
+const PASTE = document.getElementById("pasteButton");  
+const BIN = document.getElementById("qrText");
+
+PASTE.addEventListener('click', async () => {
+    const READ = await navigator.clipboard.readText();
+    BIN.value = READ;
+});
+
+
+</script>
+</body>
+</html>
