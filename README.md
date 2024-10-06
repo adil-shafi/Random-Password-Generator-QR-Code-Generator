@@ -1,5 +1,7 @@
 # Random Password Generator + QR Code Generator
 
+https://password-qr-generator.netlify.app/
+
 ## Overview
 This project is a simple yet powerful web application tool that allows users to generate a random password and subsequently create a QR code from that password. The tool can be useful for managing secure passwords and sharing them easily via QR codes. The QR Code Generator also works with any text or links, making this a powerful tool for saving and sharing.
 
